@@ -16,11 +16,11 @@ exports.findById = function(req, res) {
 };
 
 exports.findByRarity = function(req, res) {
-	var rarity = req.query.rarity;
-	console.log(req.query.rarity);
-	// Card.find({"rarity": rarity}, function(err, result){
-	// 	return res.send(result);
-	// });
+	var rarity = req.params.type;
+	console.log(rarity);
+	Card.find({"rarity": rarity}, function(err, result){
+		return res.send(result);
+	});
 };
 
 exports.findMythic = function(req, res) {	
