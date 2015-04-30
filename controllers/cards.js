@@ -16,10 +16,10 @@ exports.findById = function(req, res) {
 };
 
 exports.findByRarity = function(req, res) {
-	var rarity = req.query.rarity;
+	var rarity = req.params.type;
+	console.log(rarity);
 	Card.find({"rarity": rarity}, function(err, result){
-		console.log('testtt');
-		res.send({test:result});
+		return res.send(result);
 	});
 };
 
