@@ -17,14 +17,15 @@ exports.findById = function(req, res) {
 
 exports.findByRarity = function(req, res) {
 	var rarity = req.query.rarity;
-	console.log(req.query.rarity);
-	// Card.find({"rarity": rarity}, function(err, result){
-	// 	return res.send(result);
-	// });
+	Card.find({"rarity": rarity}, function(err, result){
+		console.log('testtt');
+		res.send({test:result});
+	});
 };
 
 exports.findMythic = function(req, res) {	
-	Card.find({rarity: 'Mythic Rare'}, function(err, result){
+	var rarity = req.query.rarity;
+	Card.find({rarity: rarity}, function(err, result){
 		if (err) return console.log(err);
 		return res.send(result);
 	});
