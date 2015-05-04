@@ -23,67 +23,47 @@ exports.findByRarity = function(req, res) {
 	});
 };
 
-exports.findMythic = function(req, res) {	
-	var rarity = req.query.rarity;
-	Card.find({rarity: rarity}, function(err, result){
-		if (err) return console.log(err);
+exports.findByColor = function(req, res){
+	if (req.params.type !== undefined) {
+		var color = req.params.type;
+	}
+	// } else {
+	// 	var color = req.query.colours;
+	// }
+	// var color = req.params.type;
+	console.log(color);
+	// Card.find({'colors':color}, function(err, result){
+	// 	return res.send(result);
+	// });
+	Card.find({'colors':
+			{$in: [color], $size: 1}
+		}, function(err, result){
 		return res.send(result);
 	});
 };
 
-exports.findRare = function(req, res) {	
-	Card.find({rarity: 'Rare'}, function(err, result){
-		if (err) return console.log(err);
-		return res.send(result);
-	});
-};
+// exports.add = function(req, res) {
+// 	Card.create(req.body, function(err, card){
+// 		if (err) return console.log(err);
+// 		return res.send(card);
+// 	});
+// };
 
-exports.findUncommon = function(req, res) {	
-	Card.find({rarity: 'Uncommon'}, function(err, result){
-		if (err) return console.log(err);
-		return res.send(result);
-	});
-};
+// exports.update = function(req, res) {
+//   	var id = req.params.id;
+//   	var updates = req.body;
 
-exports.findCommon = function(req, res) {	
-	Card.find({rarity: 'Common'}, function(err, result){
-		if (err) return console.log(err);
-		return res.send(result);
-	});
-};
+//   	Card.update({"_id":id}, req.body,
+//     	function (err, numberAffected) {
+//       		if (err) return console.log(err);
+//       		console.log('Updated %d cards', numberAffected);
+//       		return res.sendStatus(202);
+//   	});
+// };
 
-exports.add = function(req, res) {
-	Card.create(req.body, function(err, card){
-		if (err) return console.log(err);
-		return res.send(card);
-	});
-};
-
-exports.update = function(req, res) {
-  	var id = req.params.id;
-  	var updates = req.body;
-
-  	Card.update({"_id":id}, req.body,
-    	function (err, numberAffected) {
-      		if (err) return console.log(err);
-      		console.log('Updated %d cards', numberAffected);
-      		return res.sendStatus(202);
-  	});
-};
-
-exports.delete = function(req, res) {
-	var id = req.params.id;
-	Card.remove({'_id':id}, function(result){
-		return res.send(result);
-	});
-};
-
-exports.import = function(req, res){
-	Card.create({
-		"layout":"normal","type":"Creature — Dragon","types":["Creature"],"colors":["Black"],"multiverseid":394485,"name":"Acid-Spewer Dragon","subtypes":["Dragon"],"cmc":6,"rarity":"Uncommon","artist":"James Zapata","power":"3","toughness":"3","manaCost":"{5}{B}","text":"Flying, deathtouch\nMegamorph {5}{B}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen Acid-Spewer Dragon is turned face up, put a +1/+1 counter on each other Dragon creature you control.","number":"86","watermark":"Silumgar","imageName":"acid-spewer dragon"
-		},
-		function(err) {
-			if (err) return console.log(err);
-			return res.sendStatus(202);
-	});
-};
+// exports.delete = function(req, res) {
+// 	var id = req.params.id;
+// 	Card.remove({'_id':id}, function(result){
+// 		return res.send(result);
+// 	});
+// };

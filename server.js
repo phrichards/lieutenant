@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var path = require('path');
 fs = require('fs');
 var bodyParser = require('body-parser');
 
@@ -12,6 +13,10 @@ db.on('error', function(){
 
 var app = express();
 var collection = db.collection('allcards');
+app.use(express.static(path.join(__dirname + '/node_modules')));
+app.use(express.static(path.join(__dirname + '/bower_components')));
+app.use(express.static('/styles'));
+app.use(express.static(__dirname + '/'));
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -41,6 +46,5 @@ require('./routes')(app);
 //           }
 //   	});
 // });
-
 app.listen(3001);
 console.log('Listening on port 3001...');

@@ -4,26 +4,32 @@
 
 console.log('hi');
 
-var app = angular.module('commanderApp', [require('angular-route')]);
+var app = angular.module('commanderApp', ['ngRoute']);
 
-app.controller('MainCtrl', ['$scope', function ($scope) {
+app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
-	$scope.cardNames = [];
+	$scope.colors = ['White', 'Blue', 'Black', 'Red', 'Green'];
 
-	console.log('test');
-    $scope.tests = ['one', 'two', 'three'];
+    $scope.getCards = function(color) {
+        $http({
+            method: 'GET',
+            url: '/cards/color/' + color,
+        }).success(function(data){
+            console.log(data);
+        });
+    }
 
-    $http({method: 'GET', url: '/cards'}).
-    	success(function(data, status, headers, config){
-    		// console.log('cards: ' + data);
-    		console.log('success');
-    	}).
-    	error(function(data, status, headers, config){
-    		console.log('error');
-    	});
+
 
 }]);
 
-
+app.config(['$routeProvider', function($routeProvider){
+    $routeProvider.when('/', {
+        templateUrl: '/index.html',
+        controller: 'MainCtrl'
+    }).otherwise({
+        redirectTo: "/"
+    });
+}]);
 
 /* jshint ignore:end */
