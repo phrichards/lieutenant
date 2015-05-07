@@ -2,22 +2,37 @@
 
 /* jshint ignore:start */
 
-console.log('hi');
-
 var app = angular.module('commanderApp', ['ngRoute']);
 
-app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+app.factory('cardsFactory', ['$http', '$q', function($http, $q){
+    return {
+        getCards: function(color) {
+            var deferred = $q.defer();
+            $http.get('/cards/color/' + color)
+            .success(function(result){
+                deferred.resolve(result);
+            });
+            return deferred.promise;
+        }
+    };
+}]);
+
+app.controller('MainCtrl', ['$scope', '$http', 'cardsFactory', function ($scope, $http, cardsFactory) {
 
 	$scope.colors = ['White', 'Blue', 'Black', 'Red', 'Green'];
+    $scope.cards = [];
+    $scope.name = '';
+    $scope.card = {};
 
-    $scope.getCards = function(color) {
-        $http({
-            method: 'GET',
-            url: '/cards/color/' + color,
-        }).success(function(data){
-            console.log(data);
+    $scope.displayCards = function(color) {
+        cardsFactory.getCards(color).then(function(result){
+            console.log(result);
+            $scope.cards.push(result);
+            console.log($scope.cards);
         });
-    }
+    };
+
+
 
 
 
