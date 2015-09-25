@@ -27,16 +27,9 @@ exports.findByColor = function(req, res){
 	if (req.params.type !== undefined) {
 		var color = req.params.type;
 	}
-	// } else {
-	// 	var color = req.query.colours;
-	// }
-	// var color = req.params.type;
 	console.log(color);
-	// Card.find({'colors':color}, function(err, result){
-	// 	return res.send(result);
-	// });
 	Card.find({'colors':
-			{$in: [color], $size: 1}
+			{$eq: color}
 		}, function(err, result){
 		return res.send(result);
 	});

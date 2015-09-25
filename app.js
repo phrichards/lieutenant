@@ -17,24 +17,54 @@ app.factory('cardsFactory', ['$http', '$q', function($http, $q){
     };
 }]);
 
-app.controller('MainCtrl', ['$scope', '$http', 'cardsFactory', function ($scope, $http, cardsFactory) {
+app.controller('MainCtrl', ['$scope', 'cardsFactory', function ($scope, cardsFactory) {
 
 	$scope.colors = ['White', 'Blue', 'Black', 'Red', 'Green'];
     $scope.cards = [];
     $scope.name = '';
-    $scope.card = {};
+    $scope.nums = 2;
+    $scope.colorResult = ["White", "Blue"];
+    
+    $scope.colorModels = {
+        White: false,
+        Blue: false,
+        Black: false,
+        Red: false,
+        Green: false
+    }
+
+    $scope.chosenColors = [];
 
     $scope.displayCards = function(color) {
-        cardsFactory.getCards(color).then(function(result){
-            console.log(result);
-            $scope.cards.push(result);
-            console.log($scope.cards);
-        });
+        $scope.chosenColors = [];
+        for (var key in $scope.colorModels) {
+            if ($scope.colorModels.hasOwnProperty(key)) {
+                var val = $scope.colorModels[key];
+                console.log(key + ': ' + val);
+                if (val == true) {
+                    $scope.chosenColors.push(key);
+                }
+            }
+        }
+        $scope.chosenColors.sort();
+        $scope.cards = [];
+        cardsFactory.getCards($scope.chosenColors[0]).then(function(result){
+            console.log(result.length);
+            for (var i = 0; i < result.length; i++) {
+                if (result[i].colors.length == 1) {
+                    console.log('1');
+                    resultColors = result[i].colors;
+                } else {
+                    console.log('more');
+                    var resultColors = result[i].colors.sort();    
+                }
+                if (angular.equals($scope.chosenColors, resultColors)) {
+                    $scope.cards.push(result[i]);
+                }
+            }
+            var prop = color.toString();
+        }); 
     };
-
-
-
-
 
 }]);
 

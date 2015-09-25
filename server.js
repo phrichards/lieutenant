@@ -27,24 +27,5 @@ app.use(bodyParser.json());
 require('./models/card');
 require('./routes')(app);
 
-// app.get('/', function(req, res){
-// 	res.sendFile(path.join(__dirname, '../public', 'index.html'));
-// });
-
-// routes to serve the static HTML files
-// app.get('/', function(req, res) {
-//     res.sendfile('index.html');
-// });
-
-// app.get('/cards/rarity', function(req, res){
-//   db.collection('allcards').find('rarity': 'Rare'}, function(err, items) {
-//           if(err) {
-//               return console.log('findOne error:', err);
-//           }
-//           else {
-//             res.json(items);
-//           }
-//   	});
-// });
 app.listen(3001);
 console.log('Listening on port 3001...');

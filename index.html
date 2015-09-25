@@ -1,33 +1,65 @@
 <!doctype html>
-<html ng-app="commanderApp" ng-controller="MainCtrl" ng-view>
+<html ng-app="commanderApp" ng-controller="MainCtrl as main" ng-view>
   <head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700|Didact+Gothic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <h1>Choose Your Commander</h1>
+        <h1>Lieutenant</h1>
       </div>
-
-      <div class="buttons">
-        <button ng-repeat="color in colors" ng-click="displayCards(color)">{{color}}</button>
-      </div>
-
-      <div class="results" ng-if="cards.length > 0" ng-repeat="card in cards">
-        {{card}}
-      </div>
+      <div class="content">
+        <p class="description">This is a sample MEAN stack app using a custom-built API. Choose your colours, and get a selection of legendary creatures in those colours to use as your generals in a game of EDH.</p>
+        <div class="buttons">
+          <!-- <a href="#" ng-repeat="color in colors" ng-click="displayCards(color)" ng-class="color">{{color}}</a> -->
+          <div class="switch">
+            <input name="white" id="white" ng-model="colorModels.White" ng-change="displayCards('White')" data-toggle="toggle" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="white" class="white">White</label>
+          </div>
+          <div class="switch">
+            <input name="blue" id="blue" ng-model="colorModels.Blue" ng-change="displayCards('Blue')" data-toggle="toggle" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="blue" class="blue">Blue</label>
+          </div>
+          <div class="switch">
+            <input name="black" id="black" ng-model="colorModels.Black" ng-change="displayCards('Black')" data-toggle="toggle" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="black" class="black">Black</label>
+          </div>
+          <div class="switch">
+            <input name="red" id="red" ng-model="colorModels.Red" ng-change="displayCards('Red')" data-toggle="toggle" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="red" class="red">Red</label>
+          </div>
+          <div class="switch">
+            <input name="green" id="green" ng-model="colorModels.Green" ng-change="displayCards('Green')" data-toggle="toggle" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="green" class="green">Green</label>
+          </div>
+          <!-- <ul>
+            <li><input type="checkbox" name="white" id="white" ng-model="colorModels.White" ng-change="displayCards('White')" data-toggle="toggle"><label for="white">White</label></li>
+            <li><input type="checkbox" name="blue" id="blue" ng-model="colorModels.Blue" ng-change="displayCards('Blue')"><label for="blue">Blue</label></li>
+            <li><input type="checkbox" name="black" id="black" ng-model="colorModels.Black" ng-change="displayCards('Black')"><label for="black">Black</label></li>
+            <li><input type="checkbox" name="red" id="red" ng-model="colorModels.Red" ng-change="displayCards('Red')"><label for="red">Red</label></li>
+            <li><input type="checkbox" name="green" id="green" ng-model="colorModels.Green" ng-change="displayCards('Green')"><label for="green">Green</label></li>
+          </ul> -->
+        </div>
       
-
-      <div class="footer">
+      
+      
+        <div class="cards">
+          <div ng-repeat="card in cards" ng-show="showCard()" class="card"><img src="/public/images/{{card.imageName}}.jpg" alt=""></div>
+        </div>
         
-      </div>
-    </div> <!-- /.container -->
+      
+        <div class="footer">
+          
+        </div>
+      </div> <!-- /.content -->
+    </div>
 
 
 
@@ -36,5 +68,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="app.js"></script>
+    <script src="services/cardsFactory.js"></script>
+    <script src="directives/showCards.js"></script>
 </body>
 </html>

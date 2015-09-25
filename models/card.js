@@ -25,4 +25,4 @@ CardSchema.statics.findByRarity = function(callback) {
   return this.find({rarity: 'Rare' }, callback);
 };
 
-mongoose.model('Card', CardSchema, 'allcards');
+mongoose.model('Card', CardSchema, 'commanders');

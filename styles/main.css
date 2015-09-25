@@ -104,6 +104,28 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 
 .clearfix:after { content: " "; visibility: hidden; display: block; height: 0; clear: both; }
 
 /* line 16, main.scss */
-.container { width: 1000px; margin: 0 auto; }
+body { background: #0D2941; color: #fff; }
+
+/* line 21, main.scss */
+.container { width: 900px; margin: 0 auto; }
+
+/* line 26, main.scss */
+.content { margin: 0 auto; font-family: 'Istok Web', sans-serif; margin-top: 20px; }
+/* line 31, main.scss */
+.content p.description { float: left; }
+
+/* line 36, main.scss */
+.header { width: 100%; }
+/* line 40, main.scss */
+.header h1 { margin: 0; padding: 20px 0; font-family: 'Didact Gothic', sans-serif; }
+
+/* line 49, main.scss */
+.buttons { float: left; margin-top: 25%; }
+
+/* line 164, main.scss */
+div.cards { float: right; width: 80%; margin-top: 10%; }
+
+/* line 170, main.scss */
+div.card { float: left; width: 33%; margin-bottom: 20px; }
 
 /*# sourceMappingURL=main.css.map */
