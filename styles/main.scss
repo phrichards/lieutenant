@@ -14,157 +14,35 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 }
 
 body {
-	background: #0D2941;
-	color: #fff;
-}
-
-.container {
-	width: 900px;
-	margin: 0 auto;
-}
-
-.content {
-	margin: 0 auto;
+	background: #252324;
+	color: #fcfcfc;
 	font-family: 'Istok Web', sans-serif;
-	margin-top: 20px;
-
-	p.description {
-		float: left;
-	}
 }
 
-.header {
-	// background: #777775;
-	width: 100%;
+h1 {
+	margin: 0;
+	padding: 20px 0 30px;
+	font-family: 'Didact Gothic', sans-serif;
+	font-size: 3.6em;
+	color: #C4B47B;
+}
 
-	h1 {
-		margin: 0;
-		padding: 20px 0;
-		font-family: 'Didact Gothic', sans-serif;
-
-	}
-
+p {
+	margin-bottom: 20px;
+	font-size: 1.2em;
 }
 
 .buttons {
 	float: left;
-	margin-top: 25%;
+
+	div.checkbox {
+		margin-bottom: 20px;
+	}
 }
-
-// 	// margin-bottom: 20px; 
-
-// 	float: left;
-// 	width: 100%;
-
-// 	.cmn-toggle {
-// 	  position: absolute;
-// 	  margin-left: -9999px;
-// 	  visibility: hidden;
-// 	}
-// 	.cmn-toggle + label {
-// 	  display: block;
-// 	  position: relative;
-// 	  cursor: pointer;
-// 	  outline: none;
-// 	  user-select: none;
-// 	}
-
-// 	input.cmn-toggle-round-flat + label {
-// 	  padding: 2px;
-// 	  width: 120px;
-// 	  height: 60px;
-// 	  background-color: #dddddd;
-// 	  border-radius: 60px;
-// 	  transition: background 0.4s;
-// 	}
-// 	input.cmn-toggle-round-flat + label:before,
-// 	input.cmn-toggle-round-flat + label:after {
-// 	  display: block;
-// 	  position: absolute;
-// 	  content: "";
-// 	}
-// 	input.cmn-toggle-round-flat + label:before {
-// 	  top: 2px;
-// 	  left: 2px;
-// 	  bottom: 2px;
-// 	  right: 2px;
-// 	  background-color: #fff;
-// 	  border-radius: 60px;
-// 	  transition: background 0.4s;
-// 	}
-// 	input.cmn-toggle-round-flat + label:after {
-// 	  top: 4px;
-// 	  left: 4px;
-// 	  bottom: 4px;
-// 	  width: 52px;
-// 	  background-color: #dddddd;
-// 	  border-radius: 52px;
-// 	  transition: margin 0.4s, background 0.4s;
-// 	}
-// 	input.cmn-toggle-round-flat:checked + label {
-// 	  	&.white {
-// 	  		background: white;
-
-// 		  	&:after {
-// 		  		background:white;
-// 		  	}
-// 	  	}
-
-// 	  	&.blue {
-//   			background:blue;
-
-// 	  		&:after {
-// 	  			background:blue;
-// 	  		}
-// 	  	}
-
-// 	  	&.black {
-//   			background:black;
-
-// 	  		&:after {
-// 	  			background:black;
-// 	  		}
-// 	  	}
-
-// 	  	&.red {
-//   			background:red;
-
-// 	  		&:after {
-// 	  			background:red;
-// 	  		}
-// 	  	}
-
-// 	  	&.green {
-//   			background:green;
-
-// 	  		&:after {
-// 	  			background:green;
-// 	  		}
-// 	  	}
-
-// 	}
-// 	input.cmn-toggle-round-flat:checked + label:after {
-// 	  margin-left: 60px;
-	  
-// 	}
-
-// 	ul {
-// 		padding: 0;
-// 	}
-
-// 	li {
-// 		list-style-type: none;
-// 		display: inline;
-// 		float: left;
-// 		width: 20%;
-// 	}
-
-// }
 
 div.cards {
 	float: right;
-    width: 80%;
-    margin-top: 10%
+    width: 85%;
 }
 
 div.card {
