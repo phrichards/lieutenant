@@ -32,6 +32,14 @@ p {
 	font-size: 1.2em;
 }
 
+img {
+	width: 70%;
+
+	@media (max-width: 768px) {
+		width: 90%;
+	}
+}
+
 .buttons {
 	float: left;
 
@@ -49,4 +57,8 @@ div.card {
 	float: left;
 	width: 33%;
 	margin-bottom: 20px;
+
+	@media (max-width: 768px) {
+		width: 50%;
+	}
 }

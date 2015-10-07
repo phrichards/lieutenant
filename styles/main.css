@@ -110,17 +110,24 @@ body { background: #252324; color: #fcfcfc; font-family: 'Istok Web', sans-serif
 h1 { margin: 0; padding: 20px 0 30px; font-family: 'Didact Gothic', sans-serif; font-size: 3.6em; color: #C4B47B; }
 
 /* line 30, main.scss */
-p { margin-bottom: 20px;/* width: 82%; */font-size: 1.2em;}
+p { margin-bottom: 20px; font-size: 1.2em; }
 
 /* line 35, main.scss */
-.buttons { float: left; }
-/* line 38, main.scss */
-.buttons div.checkbox { margin-bottom: 20px; }
+img { width: 70%; }
+@media (max-width: 768px) { /* line 35, main.scss */
+  img { width: 90%; } }
 
 /* line 43, main.scss */
+.buttons { float: left; }
+/* line 46, main.scss */
+.buttons div.checkbox { margin-bottom: 20px; }
+
+/* line 51, main.scss */
 div.cards { float: right; width: 85%; }
 
-/* line 48, main.scss */
+/* line 56, main.scss */
 div.card { float: left; width: 33%; margin-bottom: 20px; }
+@media (max-width: 768px) { /* line 56, main.scss */
+  div.card { width: 50%; } }
 
 /*# sourceMappingURL=main.css.map */
