@@ -5,7 +5,7 @@ fs = require('fs');
 var bodyParser = require('body-parser');
 
 var mongoUri = 'mongodb://localhost/cards';
-mongoose.connect(mongoUri);
+mongoose.connect(process.env.MONGOLAB_URI || mongoUri);
 var db = mongoose.connection;
 db.on('error', function(){
 	throw new Error('unable to connect to database at ' + mongoUri);
