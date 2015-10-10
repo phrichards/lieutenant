@@ -130,4 +130,7 @@ div.card { float: left; width: 33%; margin-bottom: 20px; }
 @media (max-width: 768px) { /* line 56, main.scss */
   div.card { width: 50%; } }
 
+/* line 66, main.scss */
+.checkbox input[type=checkbox] { margin-left: 0; }
+
 /*# sourceMappingURL=main.css.map */
