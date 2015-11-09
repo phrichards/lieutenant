@@ -37,31 +37,27 @@ app.controller('MainCtrl', ['$scope', 'cardsFactory', function ($scope, cardsFac
 
     $scope.displayCards = function(color) {
         $scope.chosenColors = [];
-        for (var key in $scope.colorModels) {
-            if ($scope.colorModels.hasOwnProperty(key)) {
-                var val = $scope.colorModels[key];
-                console.log(key + ': ' + val);
-                if (val == true) {
-                    $scope.chosenColors.push(key);
-                }
+        angular.forEach($scope.colorModels, function(obj, key, val){
+            if ($scope.colorModels.hasOwnProperty(key) && $scope.colorModels[key]) {
+                $scope.chosenColors.push(key);
             }
-        }
+        });
+
         $scope.chosenColors.sort();
         $scope.cards = [];
+
         cardsFactory.getCards($scope.chosenColors[0]).then(function(result){
-            console.log(result.length);
-            for (var i = 0; i < result.length; i++) {
-                if (result[i].colors.length == 1) {
-                    console.log('1');
-                    resultColors = result[i].colors;
+            angular.forEach(result, function(val, key){
+                if (val.colors.length == 1) {
+                    var resultColors = val.colors;
                 } else {
-                    console.log('more');
-                    var resultColors = result[i].colors.sort();    
+                    var resultColors = val.colors.sort();    
                 }
+
                 if (angular.equals($scope.chosenColors, resultColors)) {
-                    $scope.cards.push(result[i]);
+                    $scope.cards.push(val);
                 }
-            }
+            });
             var prop = color.toString();
         }); 
     };
