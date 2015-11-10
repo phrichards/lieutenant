@@ -4,8 +4,8 @@ var path = require('path');
 fs = require('fs');
 var bodyParser = require('body-parser');
 
-var mongoUri = 'mongodb://localhost/cards';
-mongoose.connect(process.env.MONGOLAB_URI || mongoUri);
+var mongoUri = 'mongodb://heroku_ppjzw52v:uYc8YdN=3GPj9NWpLYDGq#{ys@ds031477.mongolab.com:31477/heroku_ppjzw52v';
+mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', function(){
 	throw new Error('unable to connect to database at ' + mongoUri);
