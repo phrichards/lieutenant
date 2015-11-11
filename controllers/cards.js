@@ -34,29 +34,3 @@ exports.findByColor = function(req, res){
 		return res.send(result);
 	});
 };
-
-// exports.add = function(req, res) {
-// 	Card.create(req.body, function(err, card){
-// 		if (err) return console.log(err);
-// 		return res.send(card);
-// 	});
-// };
-
-// exports.update = function(req, res) {
-//   	var id = req.params.id;
-//   	var updates = req.body;
-
-//   	Card.update({"_id":id}, req.body,
-//     	function (err, numberAffected) {
-//       		if (err) return console.log(err);
-//       		console.log('Updated %d cards', numberAffected);
-//       		return res.sendStatus(202);
-//   	});
-// };
-
-// exports.delete = function(req, res) {
-// 	var id = req.params.id;
-// 	Card.remove({'_id':id}, function(result){
-// 		return res.send(result);
-// 	});
-// };

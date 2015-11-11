@@ -12,7 +12,7 @@ db.on('error', function(){
 });
 
 var app = express();
-var collection = db.collection('allcards');
+var collection = db.collection('commanders');
 app.use(express.static(path.join(__dirname + '/node_modules')));
 app.use(express.static(path.join(__dirname + '/bower_components')));
 app.use(express.static('/styles'));
